@@ -8,4 +8,4 @@ int main()
     cin >> i;
     cout << ((i & 1) ? i-1 : i);
     return 0;
-}
+}w
