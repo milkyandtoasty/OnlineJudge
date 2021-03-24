@@ -23,6 +23,6 @@ class bar3d
             this -> width = this -> width * n;
             this -> height = this -> height * n;
             this -> depth = this -> depth * n;
-        }
+        } 
 };
 
