@@ -16,6 +16,5 @@ class bar3d
             height = h;
             depth = d;
         }
-
 };
 

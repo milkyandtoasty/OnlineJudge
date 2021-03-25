@@ -1,2 +1,0 @@
-
-    cin >> len >> tscore >>  s;
