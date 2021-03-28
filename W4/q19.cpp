@@ -7,7 +7,6 @@ class Digit
         Digit(int);
         void setDigit(int);
         int getDigit();
-    private:
         int num;
 }; 
 
@@ -17,6 +16,7 @@ class IntNumber
         IntNumber();
         IntNumber(char* str);
         void display();
+        IntNumber* add(IntNumber*);
     private:
         Digit digit[1000];
         bool positive = false;
@@ -78,6 +78,11 @@ void IntNumber::display()
     }
 
 }
+
+IntNumber * add(IntNumber * intNumber) {
+    //* finish this
+}
+
 Digit::Digit() {
     num = 0;
 }
@@ -95,9 +100,16 @@ int Digit::getDigit() {
 }
 int main()
 {
-    char num[10000];
-    std::cin>>num;
-    IntNumber *number = new IntNumber(num);
-    number->display();
+    char num1[10000], num2[10000];
+    std::cin>>num1>>num2;
+    IntNumber *number1 = new IntNumber(num1);
+    IntNumber *number2 = new IntNumber(num2);
+    number1->display();
+    std::cout<<std::endl;
+    number2->display();
+    std::cout<<std::endl;
+    number1->add(number2)->display();
+    std::cout << std::endl;
+    number2->add(number1)->display();
     return 0;
 }
