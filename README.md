@@ -1,5 +1,2 @@
 # OnlineJudge
-submissions for school
-
-only chunky boys allowed
-
+just some random code for the OnlineJudgeSys in school
