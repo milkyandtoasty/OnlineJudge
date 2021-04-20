@@ -65,7 +65,7 @@ void Fraction::display()
     simplify();
     if (this->denominator == 1)
     {
-        std::cout << this->numerator;
+        std::cout << "(" << this->numerator << ")";
         return;
     }
     std::cout << "(" << this->numerator << "/" << this->denominator << ")";
@@ -111,7 +111,7 @@ std::ostream &operator<<(std::ostream &os, const Fraction &f)
     Frac.simplify();
     if (Frac.getDenominator() == 1)
     {
-        os << "(" << Frac.getDenominator() << ")";
+        os <<"("<<Frac.getNumerator()<<")";
         return os;
     }
     os << "(" << Frac.getNumerator() << "/" << Frac.getDenominator() << ")";
