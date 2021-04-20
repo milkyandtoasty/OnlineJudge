@@ -7,17 +7,21 @@ class Digit
         Digit(int);
         void setDigit(int);
         int getDigit();
-        int num;
+    private:
+    int num;
 }; 
 
 class IntNumber
 {
-    public:
+    public:        
+        char* p;
         IntNumber();
         IntNumber(char* str);
         void display();
-        IntNumber* add(IntNumber*);
+        char* getp() const;
+        IntNumber* add(const IntNumber *);
     private:
+
         Digit digit[1000];
         bool positive = false;
         bool negative = false;
@@ -27,16 +31,16 @@ class IntNumber
 
 IntNumber::IntNumber()
 {   
-
+    digit[0].setDigit(0);
 }
 
 IntNumber::IntNumber(char* str)
 {
+    p = str;
     std::string number(str);
     m_available_digits = 0;
     int zero_index = 0, i = 0;
     bool started = false;
-
     //* check if there is a sign in the front '+' '-'
     switch(number[0]){
         case '+':
@@ -79,8 +83,17 @@ void IntNumber::display()
 
 }
 
-IntNumber * add(IntNumber * intNumber) {
-    //* finish this
+char* IntNumber::getp() const{
+    return p;
+}
+
+IntNumber* IntNumber::add(const IntNumber *num) {
+    long long int sum = std::stoll(p) + std::stoll(num -> getp());
+    std::string sumstr = std::to_string(sum);
+    char *sum_ = &sumstr[0];
+    IntNumber *answer = new IntNumber(sum_);
+    return answer;
+
 }
 
 Digit::Digit() {
@@ -98,6 +111,7 @@ void Digit::setDigit(int i) {
 int Digit::getDigit() {
     return num;
 }
+
 int main()
 {
     char num1[10000], num2[10000];
@@ -105,11 +119,11 @@ int main()
     IntNumber *number1 = new IntNumber(num1);
     IntNumber *number2 = new IntNumber(num2);
     number1->display();
-    std::cout<<std::endl;
+    std::cout<< std::endl;
     number2->display();
-    std::cout<<std::endl;
+    std::cout<< std::endl;
     number1->add(number2)->display();
-    std::cout << std::endl;
+    std::cout<< std::endl;
     number2->add(number1)->display();
     return 0;
 }
